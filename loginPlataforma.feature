@@ -10,13 +10,11 @@ Contexto:
 Dado que eu acesse a página de autenticação do portal EBAC
 
 Esquema do Cenário: Autenticação Válida
-Quando o usuário digitar o username <username>
-E a senha <senha>
+Quando o usuário digitar o <username> e <senha>
 Então deve direcionar para a tela e checkout
 
 Esquema do Cenário: Usuário ou senha inválidos
-Quando o usuário digitar o username <username_invalido>
-E a senha <senha_invalida>
+Quando o usuário digitar o <username_invalido> e a <senha_invalida>
 Então deve exibir a mensagem de alerta "Usuário ou senha inválidos"
 
 Exemplos:
