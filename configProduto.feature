@@ -1,35 +1,24 @@
 #language: pt
 
-Funcionalidade: Configurar produto
+Funcionalidade:  Login na plataforma
 Como cliente da EBAC-SHOP
-Quero configurar meu produto de acordo com meu tamanho e gosto
-E escolher a quantidade
-Para depois inserir no carrinho
+Quero fazer o login (autenticação) na plataforma  
+Para visualizar meus pedidos
 
 Contexto: 
-Dado que eu escolha um produto
 
-Esquema do Cenário: Adicionar itens ao carrinho
-Quando o usuário escolher a cor <cor>
-E o tamanho <tamanho>
-E selecionar <quantidade> produtos
-Então o botão de comprar deve ser habilitado para inserir os itens no carrinho
+Dado que eu acesse a página de autenticação do portal EBAC
 
-Esquema do Cenário: Selecionar mais de 10 itens
-Quando o usuário escolher a cor <cor>
-E o tamanho <tamanho>
-E selecionar a quantidade de produtos <acima_do_limite>
-Então deve ser exibido a mensagem "limite máximo de dez itens ultrapassado"
+Esquema do Cenário: Autenticação Válida
+Quando o usuário digitar o <username> e <senha>
+Então deve direcionar para a tela e checkout
 
-Esquema do Cenário: Limpar configuração de item
-Quando o usurário escolher a cor <cor>
-E o tamanho <tamanho>
-E selecionar <quantidade> produtos
-E clicar no botão de limpar
-Então a configuração deve voltar ao estado original
+Esquema do Cenário: Usuário ou senha inválidos
+Quando o usuário digitar o <username_invalido> e a <senha_invalida>
+Então deve exibir a mensagem de alerta "Usuário ou senha inválidos"
 
 Exemplos:
-|cor        |tamanho    |quantidade |acima_do_limite    |
-|"Azul"     |"XS"       |"1"        |"11"               |
-|"Laranja"  |"S"        |"2"        |"12"               | 
-|"Vermelho" |"M"        |"3"        |"13"               |
+|username               |senha                  |username_invalido          |senha_invalida | 
+|"teste1@ebac.com.br"     |"teste1"        |"teste1@ebac.com.br"    |"erro1"    |
+|"teste2@ebac.com.br" |"teste2"        |"teste2@ebac.com.br"   |"erro2" |
+|"teste3@ebac.com.br"     |"teste3"|"teste3@ebac.com.br"       |"erro3"      |
